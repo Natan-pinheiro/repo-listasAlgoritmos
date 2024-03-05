@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <h1>Quanto refri você bebe por ano?</h1>
+</head>
+<body>
+ 
+    Quantas latinhas você bebe por dia?
+    <input id="input_latinha">
+    <br>
+    <br>
+    <button onclick="calcularRefri()">Quantos Refris?</button>
+    <br>
+    <div id="div_refri"></div>    
+
+</body>
+</html>
+
+<script>
+
+    function calcularRefri()
+    {
+
+        var latinhasAnuais = Number(input_latinha.value) * 365
+
+        div_refri.innerHTML = 
+        `Você consome ${latinhasAnuais} latinhas por ano.`
+
+        if(latinhasAnuais > 500)
+        {
+
+            div_refri.innerHTML +=
+            `<br>Cuidado com a diabetes!`
+
+        }
+    
+    }
+</script>

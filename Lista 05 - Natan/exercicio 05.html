@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+    <h1>Descubra quanto você paga de luz</h1>
+</head>
+<body>
+    
+    Quantidade de KWh consumida por mês:
+    <input id="input_KWh">
+    <br>
+    <br>
+    <button onclick="calcularContaLuz()">Calcular conta de luz</button>
+
+</body>
+</html>
+
+<script>
+
+    function calcularContaLuz()
+    {
+        var KWhPorMes = Number(input_KWh.value)
+        var valorContaLuz = KWhPorMes * 0.85
+
+        if (KWhPorMes < 100)
+        {
+
+            valorContaLuz = valorContaLuz - (valorContaLuz * 0.10)
+
+        }
+
+        alert(`O valor da sua conta de luz é R$${valorContaLuz}`)
+
+    }
+
+</script>

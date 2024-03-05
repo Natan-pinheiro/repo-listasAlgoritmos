@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+    <h1>Carrara Drivers</h1>
+
+</head>
+<body>
+    
+    Insira seu nome:
+    <input class="input_nome">
+    <br>
+    Insira a distância da corrida (em km):
+    <input id="input_distancia">
+    <br>
+    Insira a bandeira da corrida:
+    <input id="input_bandeira">
+    <br>
+    Insira o horário da corrida (sistema de 24 horas):
+    <input id="input_horario">
+    <br>
+    <br>
+    <button onclick="calcularCorrida()">Calcular corrida</button>
+    <br>
+    <div id="div_mostrar_corrida"></div>
+
+</body>
+</html>
+
+<script>
+
+    var nome = input_nome.value
+    var distancia = Number(input_distancia.value)
+    var bandeira = Number(input_bandeira.value)
+    var horario = Number(input_horario.value)
+    var valorCorrida = distancia * 1.25
+    
+    function calcularCorrida()
+    {
+
+       div_mostrar_corrida.innerHTML = `teste ${valorCorrida}`
+       
+    }
+
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+    <h1>Promoção de chocolates no Mercado Bom Doce!</h1>
+
+</head>
+<body>
+    
+    Insira a quantidade de chocolates:
+    <input id="input_chocolate">
+    <br>
+    <br>
+    <button onclick="compra()">Compra</button>
+    <br>
+    <div id="div_chocolate"></div>
+
+</body>
+</html>
+
+<script>
+
+    function compra()
+    {
+
+        var qtdChocolate = Number(input_chocolate.value)
+
+        if (qtdChocolate > 12)
+        {
+
+            div_chocolate.innerHTML = `O valor da sua compra foi R$${qtdChocolate * 2.50}`
+
+        }
+        else
+        {
+
+            div_chocolate.innerHTML = `O valor da sua compra foi R$${qtdChocolate * 3}`
+
+        }
+
+    }
+
+</script>

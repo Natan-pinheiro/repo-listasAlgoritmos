@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+    <h1>Verifique o clima</h1>
+
+</head>
+<body>
+    
+    Insira a temperatura do ambiente:
+    <input id="input_temperatura">
+    <br>
+    <br>
+    <button onclick="verificarClima()">Verificar clima</button>
+    <br>
+    <div id="div_mostrar_alimento"></div>
+
+</body>
+</html>
+
+<script>
+
+    function verificarClima()
+    {
+
+        var temperatura = Number(input_temperatura.value)
+
+        if (temperatura < 10)
+        {
+
+            div_mostrar_alimento.innerHTML = `<img src="https://www.iped.com.br/_upload/content/2015/03/03/identificar-alimentos-bom-estado.jpg">`
+
+        }
+        else
+        {
+
+            div_mostrar_alimento.innerHTML = `<img src="https://uploads.metropoles.com/wp-content/uploads/2022/02/25135524/Alimentos-estragados-2.jpeg">`
+
+        }
+
+    }
+
+</script>

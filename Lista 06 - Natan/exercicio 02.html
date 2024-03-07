@@ -20,13 +20,32 @@
     <br>
     <button onclick="analisarConta()">Analisar conta</button>
     <br>
-    <div id="div_saldo"></div>
+    <div id="div_mostrar_saldo"></div>
 
 </body>
 </html>
 
 <script>
 
-    
+    function analisarConta()
+    {
+
+        var saldo = Number(input_saldo.value)
+        var debito = Number(input_debito.value)
+        var novoSaldo = saldo - debito
+
+        if (novoSaldo <= 0) 
+        {
+        
+            div_mostrar_saldo.innerHTML = `<b style="color: red">O saldo atual da conta corrente é R$${novoSaldo}</b>`
+
+        }
+        else
+        {
+
+            div_mostrar_saldo.innerHTML = `<i style="color: blue">O saldo atual da conta corrente é R$${novoSaldo}</b>`
+
+        }
+    }
 
 </script>

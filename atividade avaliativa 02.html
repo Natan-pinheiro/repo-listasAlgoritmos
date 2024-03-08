@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliativa 2</title>
+
+</head>
+<body>
+
+    Insira seu salário:
+    <input id="input_salario">
+    <br>
+    Insira seu adicional mensal:
+    <input id="input_adicional">
+    <br>
+    Insira seu bônus:
+    <input id="input_bonus">
+    <br>
+    <br>
+    <button onclick="analisarRenda()">Analisar minha renda</button>
+    <br>
+    <div id="div_mostrar_renda"></div>
+
+</body>
+</html>
+
+
+<script>
+
+    function analisarRenda()
+    {
+
+        var salario = Number(input_salario.value)
+        var adicional = Number(input_adicional.value)
+        var bonus = Number(input_bonus.value)
+        var brutoInicial = salario + adicional + bonus
+        var bruto = brutoInicial
+        var ir = 0
+
+        if (bruto >= 10000)
+        {
+
+            ir = brutoInicial * 0.125
+            bruto = brutoInicial - ir
+
+        }
+
+        var inss = bruto * 0.10
+        var fgts = bruto * 0.08
+        var liquido = brutoInicial - (ir + inss + fgts)
+
+        div_mostrar_renda.innerHTML = 
+        `<b>ANÁLISE DA SUA RENDA</b><br>
+        Com o salário de R$${salario}, com adicional de R$${adicional} e o bônus de R$${bonus}, você tem:<br>
+        Bruto: <b>R$${brutoInicial}</b><br>
+        IR: <b>R$${ir}</b><br>
+        INSS: <b>R$${inss}</b><br>
+        FGTS: <b>R$${fgts}</b><br>
+        Líquido: <b>R$${liquido}</b>`        
+
+        if (liquido > 2500)
+        {
+            var poupanca = liquido * 0.15
+
+            div_mostrar_renda.innerHTML += `<br><br>Com a renda de R$${liquido}, é recomendado poupar R$${poupanca}, para que um ano tenha poupado R$${poupanca * 12}`
+
+        }
+        else
+        {
+
+            div_mostrar_renda.innerHTML += `<br><br>Com a renda de R$${liquido}, é recomendadoobter renda extra para realizar uma poupança.` 
+
+        }
+
+    }
+
+</script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <h1>Descubra sua classe social</h1>
+
+</head>
+<body>
+    
+    Insira sua renda familiar mensal:
+    <input type="text" id="input_rendaFamiliar">
+    <br>
+    <br>
+    <button onclick="analisarRenda()">Analisar renda</button>
+    <br>
+    <div id="div_mostrarClasseSocial"></div>
+
+</body>
+</html>
+
+<script>
+
+    function analisarRenda()
+    {
+
+        let renda = Number(input_rendaFamiliar.value)
+
+        if (renda <= 250)
+        {
+
+            div_mostrarClasseSocial.innerHTML = `Classe E`
+
+        }
+        else if (renda <= 900)
+        {
+
+            div_mostrarClasseSocial.innerHTML = `Classe D`
+        
+        }
+        else if (renda <= 2500)
+        {
+
+            div_mostrarClasseSocial.innerHTML = `Classe C`
+
+        }
+        else if (renda <= 9500)
+        {
+
+            div_mostrarClasseSocial.innerHTML = `Classe B`
+
+        }
+        else
+        {
+
+            div_mostrarClasseSocial.innerHTML = `Classe A`
+
+        }
+
+    }
+
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+    <h1>Descubra se sua criança tem o peso ideal!</h1>
+
+</head>
+<body>
+    
+    Insira o peso da criança:
+    <input type="text" id="input_peso">
+    <br>
+    <br>
+    <button onclick="calcularPeso()">Calcular o peso</button>
+    <br>
+    <div id="div_mostrarPeso"></div>
+
+</body>
+</html>
+
+<script>
+
+    function calcularPeso()
+    {
+
+        let peso = Number(input_peso.value)
+
+        if (peso <= 13.5)
+        {
+
+            div_mostrarPeso.innerHTML = `Abaixo do peso`
+
+        }
+        else if (peso <= 21.2)
+        {
+         
+            if (peso == 18.3)
+            {
+
+                div_mostrarPeso.innerHTML = `Peso perfeito`
+
+            }
+            else
+            {
+
+                div_mostrarPeso.innerHTML = `Peso na média`
+
+            }
+
+        }
+        else
+        {
+        
+            div_mostrarPeso.innerHTML = `Acima do peso`
+
+        }
+
+    }
+
+</script>

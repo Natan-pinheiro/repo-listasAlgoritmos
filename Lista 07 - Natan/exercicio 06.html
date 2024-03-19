@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+    <h1>Qual é o seu time?</h1>
+
+</head>
+<body>
+
+    Insira seu time:
+    <input type="text" id="input_time">
+    <br>
+    <br>
+    <button onclick="chkTime()">Fale sobre esse time</button>
+    <br>
+    <div id="div_mostrarTime"></div>
+
+</body>
+</html>
+
+<script>
+
+    function chkTime()
+    {
+
+        let time = input_time.value
+
+        if (time == "Corinthians")
+        {
+
+            div_mostrarTime.innerHTML = `<span style="color: white; background-color: black">Salve o Corinthians</span>`
+
+        }
+        else if (time == "Palmeiras")
+        {
+
+            div_mostrarTime.innerHTML = `<span style="color: white; background-color: green;">Salve o alviverde imponente</span>`
+
+        }
+        else if (time == "Santos")
+        {
+
+            div_mostrarTime.innerHTML = `<span style="color: black; background-color: white;">Agora quem dá a bola é o Santos</span>`
+
+        }
+        else if (time == "São Paulo")
+        {
+
+            div_mostrarTime.innerHTML = `<span style="color: red; background-color: black;">Salve o Tricolor paulista</span>`
+
+        }
+
+    }
+
+</script>

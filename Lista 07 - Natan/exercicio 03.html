@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+    <h1>Descubra se a temperatura é letal ou não</h1>
+
+</head>
+<body>
+
+    Insira a temperatura
+    <input type="text" id="input_temperatura">
+    <br>
+    <br>
+    <button onclick="chkTemperatura()">Checar temperatura</button>
+    <br>
+    <div id="div_mostrarTemperatura"></div>
+
+</body>
+</html>
+
+<script>
+
+    function chkTemperatura()
+    {
+
+        let temperatura = Number(input_temperatura.value)
+
+        if (temperatura <= 14)
+        {
+
+            div_mostrarTemperatura.innerHTML = `Congelante`
+
+        }
+        else if (temperatura <= 21)
+        {
+
+            div_mostrarTemperatura.innerHTML = `Com frio`
+
+        }
+        else if (temperatura <= 24)
+        {
+
+            div_mostrarTemperatura.innerHTML = `Confortável`
+
+        }
+        else if (temperatura <= 31)
+        {
+
+            div_mostrarTemperatura.innerHTML = `Com calor`
+
+        }
+        else
+        {
+
+            div_mostrarTemperatura.innerHTML = `Calor escaldante`
+
+        }
+
+    }
+
+</script>

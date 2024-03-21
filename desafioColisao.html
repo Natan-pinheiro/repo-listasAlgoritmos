@@ -52,6 +52,7 @@
     function verificarColisao()
     {
 
+        
         //Retangulo A
         let vertice0A = Number(input_x0A.value) + Number(input_y0A.value)
         let vertice1A = Number(input_x1A.value) + Number(input_y1A.value)
@@ -60,16 +61,69 @@
         let vertice0B = Number(input_x0B.value) + Number(input_y0B.value)
         let vertice1B = Number(input_x1B.value) + Number(input_y1B.value)
 
-        if (vertice1A < vertice0B)
+
+        if (vertice0A == vertice0B)
         {
 
-            Alert("Não há colisão")
+            div_mostrarColisao.innerHTML = `Há colisão`
+
+        }
+        else if (vertice0A == vertice1B)
+        {
+
+            div_mostrarColisao.innerHTML = `Há colisão`
+
+        }
+        else if (vertice1A == vertice0B)
+        {
+
+            div_mostrarColisao.innerHTML = `Há colisão`
+
+        }
+        else if (vertice1A == vertice1B)
+        {
+
+            div_mostrarColisao.innerHTML = `Há colisão`
+
+        }
+        else if (vertice0A < vertice0B)
+        {
+
+            if (vertice1A > vertice0B)
+            {
+
+                div_mostrarColisao.innerHTML = `Há colisão`
+
+            }
+            else
+            {
+
+                div_mostrarColisao.innerHTML = `Não há colisão`
+
+            }
+
+        }
+        else if (vertice0A < vertice1B)
+        {
+
+            if (vertice1A > vertice1B)
+            {
+
+                div_mostrarColisao.innerHTML = `Há colisão`
+
+            }
+            else
+            {
+
+                div_mostrarColisao.innerHTML = `Não há colisão`
+
+            }
 
         }
         else
         {
 
-            Alert("Há colisão")
+            div_mostrarColisao.innerHTML = `Não há colisão`
 
         }
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <h1>Descubra se você pode receber auxílio!</h1>
+</head>
+<body>
+    
+    Insira sua renda individual:
+    <input type="text" id="input_rendaIndividual">
+    <br>
+    Insira sua renda familiar:
+    <input type="text" id="input_rendaFamiliar">
+    <br>
+    <br>
+    <button onclick="chkBeneficio()">Terei o benefício</button>
+    <br>
+    <br>
+    <div id="div_mostrarBeneficio"></div>
+
+</body>
+</html>
+
+<script>
+
+    function chkBeneficio()
+    {
+
+       let rendaIndividual = Number(input_rendaIndividual.value);
+       let rendaFamiliar = Number(input_rendaFamiliar.value);
+       
+       if(rendaIndividual <= 2000 || rendaFamiliar <= 3000)
+       {
+
+            div_mostrarBeneficio.innerHTML = `Você terá direito ao auxílio`
+
+       }
+       else
+       {
+
+            div_mostrarBeneficio.innerHTML = `Sem direito ao auxílio`
+
+       }
+
+    }
+
+</script>

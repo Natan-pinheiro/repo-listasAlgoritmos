@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <h1>Descubra se você foi aprovado!</h1>
+</head>
+<body>
+
+    Insira sua nota do ENEM:
+    <input type="text" id="input_enem">
+    <br>
+    Insira sua nota do vestibular interno:
+    <input type="text" id="input_vestInterno">
+    <br>
+    <br>
+    <button onclick="chkNota()">Avaliação</button>
+    
+</body>
+</html>
+
+<script>
+
+    function chkNota()
+    {
+
+        let enem = Number(input_enem.value)
+        let vestInterno = Number(input_vestInterno.value)
+
+        if (enem >= 800 || vestInterno >=700)
+        {
+
+            alert(`Parabéns! Aprovado!`);
+
+        }
+        else
+        {
+
+            alert(`Tente semestre que vem!`);
+
+        }
+
+    }
+
+</script>

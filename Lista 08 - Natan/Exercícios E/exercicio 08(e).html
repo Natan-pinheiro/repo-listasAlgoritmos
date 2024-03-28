@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercpicio 8 E</title>
+    <h1>Faça seu login</h1>
+</head>
+<body>
+    
+    Insira seu login:
+    <input id="input_login">
+    <br>
+    Insira sua senha:
+    <input type="password" id="input_senha">
+    <br>
+    Insira seu código de segurança:
+    <input type="password" id="input_codSeguranca">
+    <br>
+    <br>
+    <button onclick="chkLogin()">Entrar</button>
+
+</body>
+</html>
+
+<script>
+
+    function chkLogin()
+    {
+
+        let login = input_login.value
+        let senha = input_senha.value
+        let codSeguranca = Number(input_codSeguranca.value)
+
+        if (login == "SPTech" && senha == "digital" && codSeguranca == 123)
+        {
+
+            alert(`Usuário autenticado com sucesso`)
+
+        }
+        else
+        {
+
+            alert(`Falha na autenticação`)
+
+        }
+
+    }
+
+</script>

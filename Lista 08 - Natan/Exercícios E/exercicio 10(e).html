@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10 E</title>
+    <h1>Ferifique a sua situação</h1>
+</head>
+<body>
+    
+    Insira sua idade:
+    <input id="input_idade">
+    <br>
+    Insira seu salário:
+    <input id="input_salario">
+    <br>
+    <br>
+    <button onclick="chkSituacao()">Analisar situação</button>
+    <br>
+    <br>
+    <div id="div_mostrarSituacao"></div>
+
+</body>
+</html>
+
+<script>
+
+    function chkSituacao()
+    {
+
+        const IDADE = Number(input_idade.value)
+        const SALARIO = Number(input_salario.value)
+
+        if(IDADE < 18)
+        {
+
+            if(SALARIO < 2500)
+            {
+
+                div_mostrarSituacao.innerHTML=`Menor de idade e liso.`
+
+            }
+            else
+            {
+
+                div_mostrarSituacao.innerHTML=`Menor de idade e ostentação.`
+
+            }
+
+        }
+        else
+        {
+
+            if(SALARIO < 3500)
+            {
+
+                div_mostrarSituacao.innerHTML=`Maior de idade e liso.`
+
+            }
+            else if(SALARIO <= 7000)
+            {
+
+                div_mostrarSituacao.innerHTML=`Maior de idade e ostentação`
+
+            }
+            else
+            {
+
+                div_mostrarSituacao.innerHTML=`Maior de idade e mega ostentação.`
+
+            }
+
+        }
+
+    }
+
+</script>

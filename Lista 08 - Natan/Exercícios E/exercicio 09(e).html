@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9 E</title>
+    <h1>Processo de seleção de pilotos</h1>
+</head>
+<body>
+    
+
+    Insira o intervalo de altura desejado: 
+    <br>
+    Altura inicial: <input id="input_alturaInicial">
+    <br>
+    Altura final: <input id="input_alturaFinal">
+    <br>
+    Insira o nome do candidato:
+    <input id="input_nome">
+    <br>
+    Insira a altura do candidato:
+    <input id="input_alturaCandidato">
+    <br>
+    <br>
+    <button onclick="chkCandidato()">Inserir candidato</button>
+    <br>
+    <br>
+    <div id="div_candidatos"></div>
+
+</body>
+</html>
+
+
+<script>
+
+    function chkCandidato()
+    {
+
+        const ALTURA_INICIAL = Number(input_alturaInicial.value)
+        const ALTURA_FINAL = Number(input_alturaFinal.value)
+        
+        let nome = input_nome.value
+        let alturaCandidato = Number(input_alturaCandidato.value)
+
+        if(ALTURA_INICIAL > 1 && ALTURA_FINAL > ALTURA_INICIAL)
+        {
+
+            if(alturaCandidato > ALTURA_INICIAL && alturaCandidato < ALTURA_FINAL)
+            {
+
+                div_candidatos.innerHTML += `O candidato <b>${nome}</b> com altura de <b>${alturaCandidato}</b> participará do processo de selação de piloto. <br>`
+
+            }
+            else
+            {
+
+            div_candidatos.innerHTML += `Infelizmente o candidato <b>${nome}</b> com altura de <b>${alturaCandidato}</b> não atende os requisitos. <br>`
+
+            }
+
+        }
+        else
+        {
+
+            alert(`ERRO: Insira um intervalo de altura válido`)
+
+        }
+    }
+
+</script>

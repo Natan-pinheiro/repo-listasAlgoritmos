@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11 E</title>
+    <h1>Recarregue seu cartão fidelidade</h1>
+</head>
+<body>
+    
+    Insira a quantidade de passagens que deseja adquirir:
+    <input id="input_qtdPassagens">
+    <br>
+    <button onclick="compra()">Comprar</button>
+    <br>
+    <br>
+    <div id="div_mostrarPassagem"></div>
+
+</body>
+</html>
+
+<script>
+
+    function compra()
+    {
+
+        const QTD_PASSAGENS = Number(input_qtdPassagens.value)
+        const VALOR_PASSAGEM = 4.40
+
+        let valorTotal = QTD_PASSAGENS * VALOR_PASSAGEM
+
+        if(QTD_PASSAGENS >= 8 && QTD_PASSAGENS <= 50)
+        {
+
+            if (QTD_PASSAGENS <= 19)
+            {
+
+                valorTotal = valorTotal * 0.97 
+
+            }
+            else if(QTD_PASSAGENS <= 49)
+            {
+            
+                valorTotal = valorTotal * 0.95
+
+            }
+            else
+            {
+            
+                valorTotal = valorTotal * 0.93
+
+            }
+
+            div_mostrarPassagem.innerHTML=`Total a pagar: ${valorTotal.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}`
+
+        }
+        else
+        {
+
+            alert(`Quantidade inválida para o Fidelidade!`)
+
+        }
+
+    }
+
+</script>

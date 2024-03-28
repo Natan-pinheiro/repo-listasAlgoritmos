@@ -22,8 +22,24 @@
 
 <script>
 
-    let hora = Number(input_hora.value)
+    function chkHora()
+    {
 
-    if (hora >= 19 && hora <=)
+        let hora = Number(input_hora.value)
+
+        if (hora >= 19 && hora <=21)
+        {
+
+            div_recomendacao.innerHTML = `Não é recomendável que você assista sua série favorita no horário ${hora}!`
+
+        }
+        else
+        {
+
+            div_recomendacao.innerHTML = `O horário ${hora} é adequado para assistir sua série favorita!`
+
+        }
+
+    }
 
 </script>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Operações com Textos</h1>
+    Digite uma frase:
+    <input id="input_frase" />
+    <button onclick="analisarTextos()">Analisar</button>
+    <br />
+
+    Pesquise por uma letra (Começo e fim):
+    <input id="input_pesquisa">
+    <br />
+
+    Pesquise a letra pela posição:
+    <input id="input_posicao_letra">
+    <button onclick="encontrarLetra()">
+      Encontrar letra
+    </button>
+    <br />
+    
+
+    Quantidade de caracteres:
+    <b>
+      <span id="span_qtd_letras"></span>
+    </b>
+    <br />
+
+    Começa com a letra da pesquisa?
+    <b>
+      <span id="span_comeca_pesquisa"></span>
+    </b>
+    <br />
+
+    Termina com a letra da pesquisa?
+    <b>
+      <span id="span_termina_pesquisa"></span>
+    </b>
+    <br />
+
+
+    Primeira letra da frase:
+    <b>
+      <span id="span_primeira_letra"></span>
+    </b>
+    <br />
+
+    Terceira letra da frase:
+    <b>
+      <span id="span_terceira_letra"></span>
+    </b>
+    <br />
+
+    Última letra da frase:
+    <b>
+      <span id="span_ultima_letra"></span>
+    </b>
+    <br />
+
+    Letra na posição indicada:
+    <b>
+      <span id="span_posicao_letra"></span>
+    </b>
+    <br />
+
+    Onde está o primeiro @?
+    <b>
+      <span id="span_primeira_arroba"> </span>
+    </b>
+    <br />
+
+    Índice de "abc":
+    <b>
+      <span id="span_indice_abc"></span>
+    </b>
+    <br />
+
+    Como fica em maiúsculo (CAIXA ALTA):
+    <b>
+      <span id="span_maiusculo"></span>
+    </b>
+    <br />
+
+    Como fica em minúsculo (caixa baixa):
+    <b>
+      <span id="span_minusculo"></span>
+    </b>
+    <br />
+
+    Frase original:
+    <b>
+      <span id="span_frase_original"></span>
+    </b>
+    <br />
+
+    Frase com @ no primeiro 'a':
+    <b>
+      <span id="span_arroba_no_a"></span>
+    </b>
+    <br />
+
+    Frase sem espaços:
+    <b>
+      <span id="span_sem_espacos"></span>
+    </b>
+    <br />
+
+    Frase com 4, 5 e 3:
+    <b>
+      <span id="span_numeros"></span>
+    </b>
+  </body>
+</html>
+
+<script>
+  function analisarTextos() {
+
+      const frase = input_frase.value;
+      const letraPesquisa = input_pesquisa.value;
+
+      let cor = "red";
+      
+      if(frase.length <= 9)
+      {
+
+        cor = "green";
+
+      }
+      else if(frase.length <= 19)
+      {
+        
+        cor = "yellow";
+        
+      }
+
+      span_qtd_letras.style.color = cor;
+      span_qtd_letras.innerHTML = frase.length;
+
+      if(frase.startsWith(letraPesquisa))
+      {
+
+        span_comeca_pesquisa.innerHTML = `Sim, a frase começa com ${letraPesquisa}`
+
+      }
+      else
+      {
+
+        span_comeca_pesquisa.innerHTML = `Não`
+
+      }
+
+      if(frase.endsWith(letraPesquisa))
+      {
+
+        span_termina_pesquisa.innerHTML = `Sim, a frase termina com ${letraPesquisa}`
+
+      }
+      else
+      {
+
+        span_termina_pesquisa.innerHTML = `Não`
+
+      }
+
+      span_primeira_letra.innerHTML = frase[0]
+      span_terceira_letra.innerHTML = frase[2]
+      span_ultima_letra.innerHTML = frase[frase.length - 1]
+
+      const indiceArroba = frase.indexOf("@");
+      const indiceABC = frase.indexOf("abc");
+
+      if(indiceArroba == -1)
+      {
+
+        span_primeira_arroba.innerHTML = `Não existe`;
+
+      }
+      else
+      {
+      
+        span_primeira_arroba.innerHTML = indiceArroba;
+      
+      }
+
+      if(indiceABC == -1)
+      {
+
+        span_indice_abc.innerHTML = "Não existe!";
+      
+      }
+      else
+      {
+
+        span_indice_abc.innerHTML = indiceABC;
+
+      }
+
+      span_maiusculo.innerHTML = frase.toUpperCase();
+      span_minusculo.innerHTML = frase.toLowerCase();
+      span_frase_original.innerHTML = frase;
+      span_arroba_no_a.innerHTML = frase.replace("a", "@")
+      span_sem_espacos.innerHTML = frase.replaceAll(" ", "")
+      span_numeros.innerHTML = frase.replaceAll("a", "4").replaceAll("s", "5").replaceAll("e", "3")
+      
+  }
+
+
+  function encontrarLetra()
+  {
+
+    const frase = input_frase.value;
+    let posicao = Number(input_posicao_letra.value);
+    
+    if(posicao <= 0)
+    {
+
+      alert(`${posicao} não é um número válido!`)
+
+    }
+    else if (posicao > frase.length)
+    {
+
+      alert(`A frase não tem a posição ${posicao}!`)
+
+    }
+    else if(frase[posicao - 1] == " ")
+    {
+
+      span_posicao_letra.innerHTML = "Espaço"
+
+    }
+    else
+    {
+
+    span_posicao_letra.innerHTML = `${frase[posicao - 1]}`
+
+    }
+
+  }
+</script>

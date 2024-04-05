@@ -34,7 +34,6 @@
         let conta = Number(input_conta.value)
         let digito = Number(input_digito.value)
         let senha = input_senha.value
-        const numeros = /[0-9]/
 
         if(conta != 0 && digito == (conta % 10))
         {
@@ -80,7 +79,7 @@
                 alert(`A senha precisa ter pelo menos 1 caractere especial ("#" ou "@")`)
 
             }
-            else if (numeros.test(senha) == false)
+            else if (senha.indexOf(0) == -1 || senha.indexOf(1) == -1 || senha.indexOf(3) == -1 || senha.indexOf(4) == -1 || senha.indexOf(5) == -1 || senha.indexOf(6) == -1 || senha.indexOf(7) == -1 || senha.indexOf(8) == -1 || senha.indexOf(9) == -1 || )
             {
 
                 alert(`A senha precisa ter pelo menos 1 caratere numérico`)

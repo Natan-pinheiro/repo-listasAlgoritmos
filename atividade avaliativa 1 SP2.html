@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco KNAB</title>
+    <h1>Seja bem vindo ao Banco KNAB</h1>
+</head>
+<body>
+    
+    <div id="container">
+        <br>
+        <h2>Simulação de Empréstimos e Investimentos</h2>
+        <br>
+        <br>
+        <h4>Entre com os dados de sua conta:</h4>
+        <input id="input_conta" placeholder="Conta">
+        <input id="input_digito" placeholder="Dígito">
+        <input id="input_senha" placeholder="Senha"></input>
+        <br>
+        <br>
+        <br>
+        <button onclick="simular()">Simular</button>
+    </div>
+    
+</body>
+</html>
+
+<script>
+
+    function simular()
+    {
+
+        let conta = Number(input_conta.value)
+        let digito = Number(input_digito.value)
+        let senha = input_senha.value
+
+        if(conta != 0 && digito == (conta % 10))
+        {
+
+            if(digito <= 3)
+            {
+
+                if(senha.indexOf("manaus") == -1)
+                {
+
+                    alert(`Senha inválida (precisa de "manaus")`)
+
+                }
+
+            }
+            else if (digito <= 7)
+            {
+
+                if(senha.indexOf("recife") == -1)
+                {
+
+                    alert(`Senha inválida (precisa de "recife")`)
+
+                }
+
+            }
+            else
+            {
+                
+                if(senha.indexOf("fortaleza") == -1)
+                {
+
+                    alert(`Senha inválida (precisa de "fortaleza")`)
+
+                }
+
+            }
+
+            if(senha.indexOf("#") == -1 && senha.indexOf("@") == -1)
+            {
+
+
+                alert(`A senha precisa ter pelo menos 1 caractere especial ("#" ou "@")`)
+
+            }
+            else if (senha.indexOf(0) == -1 && senha.indexOf(1) == -1 && senha.indexOf(2) == -1 && senha.indexOf(3) == -1 && indexOf(4) == -1 && senha.indexOf(5) == -1 && senha.indexOf(6) == -1 && senha.indexOf(7) == -1 && senha.indexOf(8) == -1 && senha.indexOf(9) == -1)
+            {
+
+                alert(`A senha precisa ter pelo menos 1 caratere numérico`)
+
+            }
+            else if(senha.length < 10)
+            {
+
+                alert(`A senha precisa de pelo menos 10 caracteres`)
+
+            }
+            else
+            {
+
+                container.innerHTML =
+                `<br>
+                <h2>Empréstimos e Investimentos com as melhores taxas do mercado</h2>
+                <br>
+                <br>
+                <h4>Entre com os dados da sua simulação</h4>
+                <br>
+                Valor da Operação: 
+                <input id="input_valorOperacao" placeholder="valor">
+                <br>
+                <br>
+                <select id="select_operacao">
+                    
+                    <option value="vazio">Selecione uma operação...</option>
+                    <option value="emprestimo">Empréstimo</option>
+                    <option value="investimento">Investimento</option>
+                    
+                </select>
+                <select id="select_prazo">
+                    
+                    <option value="vazio">Selecione um prazo...</option>
+                    <option value="curto">Curto</option>
+                    <option value="medio">Médio</option>
+                    <option value="longo">Longo</option>
+                    
+                </select>
+                <br>
+                <br>
+                <button onclick="mostrarResultado()" id="botao" value="1">Mostrar resultado</button>
+                <button onclick="voltarSimulacao()">Voltar à simulação</button>
+                <br>
+                <br>
+                <br>
+                <div id="div_mostrarResultado"></div>
+                `
+
+            }
+
+        }
+        else
+        {
+
+            alert(`Conta e/ou Dígito inválidos`)
+
+        }
+
+    }
+
+
+    function mostrarResultado()
+    {
+
+        let valor = Number(input_valorOperacao.value)
+        let operacao = select_operacao.value
+        let prazo = select_prazo.value
+        let valorJuros = 0
+        let botao = document.getElementById("botao")
+        let simulacao = Number(botao.value)
+        
+    
+        if(prazo == "medio" || prazo == "curto")
+        {
+
+            alert(`Esta operação está condicionada ao seu perfil`)
+
+        }
+
+        if(operacao == "emprestimo")
+        {
+            
+            
+            if(prazo == "curto")
+            {
+            
+                valorJuros = valor * 0.24
+                div_mostrarResultado.innerHTML += `Simulação ${simulacao} – Para o empréstimo de ${valor.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} no curto prazo será cobrado os juros de ${valorJuros.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} ao ano<br>`
+                simulacao += 1
+                botao.value = simulacao
+                
+            }
+            else if (prazo == "medio")
+            {
+
+                valorJuros = valor * 0.16
+                div_mostrarResultado.innerHTML += `Simulação ${simulacao} – Para o empréstimo de ${valor.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} no médio prazo será cobrado os juros de ${valorJuros.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} ao ano<br>`   
+                simulacao += 1
+                botao.value = simulacao
+
+            }
+            else if (prazo == "longo")
+            {
+
+                valorJuros = valor * 0.10
+                div_mostrarResultado.innerHTML += `Simulação ${simulacao} – Para o empréstimo de ${valor.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} no longo prazo será cobrado os juros de ${valorJuros.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} ao ano<br>`
+                simulacao += 1
+                botao.value = simulacao
+        
+            }
+        }
+        else if(operacao == "investimento")
+        {
+
+            if(prazo == "curto")
+            {
+
+                valorJuros = valor * 0.05
+                div_mostrarResultado.innerHTML += `Simulação ${simulacao} – Investindo ${valor.toLocaleString('pt-BR', {style: 'currency', currency:'BRL'})} no curto prazo o seu rendimento será de ${valorJuros.toLocaleString('pt-BR', {style: 'currency', currency:'BRL'})} ao ano<br>`
+                simulacao += 1
+                botao.value = simulacao
+
+            }
+            else if(prazo == "medio")
+            {
+
+                valorJuros = valor * 0.08
+                div_mostrarResultado.innerHTML += `Simulação ${simulacao} – Investindo ${valor.toLocaleString('pt-BR', {style: 'currency', currency:'BRL'})} no médio prazo o seu rendimento será de ${valorJuros.toLocaleString('pt-BR', {style: 'currency', currency:'BRL'})} ao ano<br>`
+                simulacao += 1
+                botao.value = simulacao
+
+            }
+            else if(prazo == "longo")
+            {
+
+                valorJuros = valor * 0.12
+                div_mostrarResultado.innerHTML += `Simulação ${simulacao} – Investindo ${valor.toLocaleString('pt-BR', {style: 'currency', currency:'BRL'})} no longo prazo o seu rendimento será de ${valorJuros.toLocaleString('pt-BR', {style: 'currency', currency:'BRL'})} ao ano<br>`
+                simulacao += 1
+                botao.value = simulacao
+
+            }
+
+        }
+        else
+        {
+
+            alert(`Insira uma Operação e um Prazo`)
+
+        }
+
+    }
+
+    function voltarSimulacao()
+    {
+
+        container.innerHTML = 
+        `   <br>
+            <h2>Simulação de Empréstimos e Investimentos</h2>
+            <br>
+            <br>
+            <h4>Entre com os dados de sua conta:</h4>
+            <input id="input_conta" placeholder="Conta">
+            <input id="input_digito" placeholder="Dígito">
+            <input id="input_senha" placeholder="Senha"></input>
+            <br>
+            <br>
+            <br>
+            <button onclick="simular()">Simular</button>`
+
+    }
+</script>

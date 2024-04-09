@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+    <h1>Demonstre seu amor!!</h1>
+</head>
+<body>
+
+    Quem você mais ama na sua vida?
+    <input id="input_nome" placeholder="Amor da sua vida">
+    <br>
+    O quanto você a ama?
+    <input id="input_qtdAmor" placeholder="1, 2, 3, 4...">
+    <br>
+    <br>
+    <button onclick="calcularAmor()">Expressar amor</button>
+    <br>
+    <br>
+    <div id="div_mostrarAmor"></div>
+
+</body>
+</html>
+
+<script>
+
+    function calcularAmor()
+    {
+
+        let nome = input_nome.value
+        let qtdAmor = Number(input_qtdAmor.value)
+
+        for(let contagem = 1; contagem <= qtdAmor; contagem += 1)
+        {
+
+            div_mostrarAmor.innerHTML += `${contagem} - ${nome}, eu te amo! Sempre lembre disso!<br>`
+
+        }
+
+    }
+
+</script>

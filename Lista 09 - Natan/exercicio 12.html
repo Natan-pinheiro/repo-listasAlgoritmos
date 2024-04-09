@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exeercício 12</title>
+    <h1>Tabuadas</h1>
+</head>
+<body>
+    
+    <h4>Escolha a sua tabuada desejada:</h4>
+    <select id="select_tabuada">
+
+        <option value="vazio">-</option>
+        <option value="2">Tabuada do 2</option>
+        <option value="3">Tabuada do 3</option>
+        <option value="4">Tabuada do 4</option>
+        <option value="5">Tabuada do 5</option>
+        <option value="6">Tabuada do 6</option>
+        <option value="7">Tabuada do 7</option>
+        <option value="8">Tabuada do 8</option>
+        <option value="9">Tabuada do 9</option>
+
+    </select>
+    <br>
+    <br>
+    Insira até que número você quer sua tabuada:
+    <br>
+    <input id="input_final" placeholder="1, 2, 3, 4...">
+    <br>
+    <br>
+    <button onclick="calcTabuada()">Ver tabuada</button>
+    <br>
+    <br>
+    <div id="div_mostrarTabuada"></div>
+
+</body>
+</html>
+
+<script>
+
+    function calcTabuada()
+    {
+
+        const tabuada = Number(select_tabuada.value)
+        const final = Number(input_final.value)
+
+        if(isNaN(tabuada))
+        {
+
+            alert(`Escolha uma tabuada`)
+
+        }
+        else if(final <= 0 || isNaN(final))
+        {
+
+            alert(`Insira um número válido`)
+
+        }
+        else
+        {
+
+            for(contagem = 1; contagem <= final; contagem += 1)
+            {
+
+                if(contagem % 2 == 0)
+                {
+
+                    div_mostrarTabuada.innerHTML += `<span style="color: blue">${tabuada} x ${contagem} = ${tabuada * contagem}</span><br>`
+
+                }
+                else
+                {
+
+                    div_mostrarTabuada.innerHTML += `<span style="color: red">${tabuada} x ${contagem} = ${tabuada * contagem}</span><br>`
+
+                }
+
+            }
+
+        }
+
+    }
+
+</script>

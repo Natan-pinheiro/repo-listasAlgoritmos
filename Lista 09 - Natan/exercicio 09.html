@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+    <h1>Papagaio</h1>
+</head>
+<body>
+    
+    Insira uma frase:
+    <input id="input_frase" placeholder="Loro quer biscoito...">
+    <br>
+    Insira um número:
+    <input type="number" id="input_numero" placeholder="1, 2, 3 ,4...">
+    <br>
+    <br>
+    <button onclick="papagaio()">Papagaio</button>
+
+</body>
+</html>
+
+<script>
+
+    function papagaio()
+    {
+    
+        let frase = input_frase.value
+        let numero = Number(input_numero.value)
+
+        for (let contagem = 1; contagem <= numero; contagem += 1)
+        {
+
+            alert(frase)
+
+        }
+    
+    }
+
+</script>

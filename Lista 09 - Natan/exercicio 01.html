@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <h1>Contagem</h1>
+</head>
+<body>
+    
+    <button onclick="contar()">Contar</button>
+    <br>
+    <br>
+    <div id="div_mostrarContagem"></div>
+
+</body>
+</html>
+
+<script>
+
+    function contar()
+    {
+
+        for (let contagem = 1; contagem <= 15; contagem += 1)
+        {
+
+            div_mostrarContagem.innerHTML += `${contagem}<br>`
+
+        }
+
+    }
+
+</script>

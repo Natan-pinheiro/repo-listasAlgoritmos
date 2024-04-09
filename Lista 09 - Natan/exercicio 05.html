@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+    <h1>Cabalísticos!!!</h1>
+</head>
+<body>
+    
+    <button onclick="numerosCabalisticos()">Números cabalísticos</button>
+    <br>
+    <br>
+    <div id="div_mostrarNumeros"></div>
+
+</body>
+</html>
+
+<script>
+
+    function numerosCabalisticos()
+    {
+
+        for (let contagem = 1; contagem <= 30; contagem += 1)
+        {
+
+            if (contagem != 3 && contagem != 4 && contagem != 7 && contagem != 10 && contagem != 12)
+            {
+
+                div_mostrarNumeros.innerHTML += `${contagem}<br>`
+
+            }
+
+        }
+
+    }
+
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+    <h1>Sete!!</h1>
+</head>
+<body>
+
+    Insira seu número:
+    <input id="input_numero" placeholder="Máximo: 200">
+    <br>
+    <br>
+    <button onclick="calcSete()">Viva o 7!</button>
+    <br>
+    <br>
+    <div id="div_mostrarSete"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function calcSete()
+    {
+
+        let numero = Number(input_numero.value)
+
+        if (numero < 0 || numero > 200)
+        {
+
+            alert(`Insira um número válido (de 0 a 200)`)
+
+        }
+        else
+        {
+
+            for (let contagem = 7; contagem <= numero; contagem += 7)
+            {
+
+                div_mostrarSete.innerHTML += `${contagem}<br>`
+
+            }
+
+        }
+
+    }
+
+</script>

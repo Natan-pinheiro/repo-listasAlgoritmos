@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11</title>
+    <h1>Corrida Maluca!</h1>
+</head>
+<body>
+    
+    Quantas voltas seu carro dará na corrida?
+    <br>
+    <input type="number" id="input_voltas" placeholder="Preparar, apontar...">
+    <br>
+    <br>
+    <button onclick="voltas()">Iniciar corrida!</button>
+    <br>
+    <br>
+    <div id="div_mostrarVoltas"></div>
+
+</body>
+</html>
+
+<script>
+
+    function voltas()
+    {
+
+        const voltas = Number(input_voltas.value)
+
+        for(let contagem = 1; contagem <= voltas; contagem += 1)
+        {
+
+            div_mostrarVoltas.innerHTML += `Carro dando a ${contagem}ª volta<br>`
+
+        }
+
+        div_mostrarVoltas.innerHTML += `Corrida Finalizada!`
+
+    }
+
+</script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+    <h1>Descubra quantos múltiplos de 5 existem até seu número!</h1>
+</head>
+<body>
+    
+    Insira o seu número:
+    <input id="input_numero" placeholder="De 20 a 100">
+    <br>
+    <br>
+    <button onclick="calcCinco()">Adoro múltiplos de 5</button>
+    <br>
+    <br>
+    <div id="div_mostrarCinco"></div>
+
+</body>
+</html>
+
+<script>
+
+    function calcCinco()
+    {
+
+        let numero = Number(input_numero.value)
+
+        if (numero < 20 || numero >100)
+        {
+
+            alert(`Insira um número válido (entre 20 e 100)`)
+
+        }
+        else
+        {
+
+            for(let contagem = 5; contagem <= numero; contagem += 5)
+            {
+
+                div_mostrarCinco.innerHTML += `${contagem}<br>`           
+                
+            }
+            
+            //TAMBÉM PODERIA SER FEITO ASSIM:
+            // for (let contagem = 1; contagem <= numero; contagem += 1)
+            // {
+
+            //     // if (contagem % 5 == 0)
+            //     // {
+
+            //     //     div_mostrarMultiplos.innerHTML += `${contagem}<br>`
+
+            //     // }
+            // }
+
+        }
+
+    }
+
+</script>
+
+

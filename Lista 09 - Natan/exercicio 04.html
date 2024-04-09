@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+    <h1>Descubra os números pares entre 0 e 100!</h1>
+</head>
+<body>
+
+    <button onclick="pares()">S2 Pares</button>
+    <br>
+    <br>
+    <div id="div_mostrarPar"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function pares()
+    {
+
+        for (let contagem = 0; contagem <= 100; contagem += 2)
+        {
+
+            div_mostrarPar.innerHTML += `${contagem}<br>`
+
+        }
+
+    }
+
+</script>

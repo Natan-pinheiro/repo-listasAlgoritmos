@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 14</title>
+    <h1>Contando sua idade</h1>
+</head>
+<body>
+
+    Sua idade:
+    <input id="input_idade" placeholder="0, 1, 2, 3..." onkeyup="contarIdade()">
+    <br>
+    <br>
+    <div id="div_mostrarIdade"></div>
+
+</body>
+</html>
+
+<script>
+
+    function contarIdade()
+    {
+
+        const idade = Number(input_idade.value)
+
+        div_mostrarIdade.innerHTML = ""
+        for(let contagem = 0; contagem <= idade; contagem +=1)
+        {
+
+            if(contagem <= 4)
+            {
+
+                div_mostrarIdade.innerHTML += `${contagem} anos (Primeira infância)<br>`
+
+            }
+            else if(contagem <= 6)
+            {
+
+                div_mostrarIdade.innerHTML += `${contagem} anos (Pré-escolar)<br>`
+
+            }
+            else if(contagem <=10)
+            {
+            
+                div_mostrarIdade.innerHTML += `${contagem} anos (Segunda infância)<br>`
+            
+            }
+            else if(contagem <=18)
+            {
+
+                div_mostrarIdade.innerHTML += `${contagem} anos (Adolescência)<br>`
+
+            }
+            else if(contagem <= 50)
+            {
+
+                div_mostrarIdade.innerHTML += `${contagem} anos (Adulto)<br>`
+
+            }
+            else if(contagem <= 100)
+            {
+            
+                div_mostrarIdade.innerHTML += `${contagem} anos (Melhor idade)<br>`
+
+            }
+            else
+            {
+            
+                div_mostrarIdade.innerHTML += `${contagem} anos (Matusalém)<br>`
+
+            }
+        
+        }
+
+    }
+
+</script>

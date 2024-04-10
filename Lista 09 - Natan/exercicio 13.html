@@ -28,15 +28,15 @@
         const dia = Number(input_dia.value)
         
 
-        for(let contagem = 1; contagem <= 30; contagem += dia + 1)
+        for(let contagem = 1; contagem <= 30; contagem += dia)
         {
 
             div_mostrarRotina.innerHTML += `Dia ${contagem} - Musculação<br>`
 
-            for(let contagem2 = contagem; contagem2 < dia; contagem2 +=1)
+            for(let contagem2 = 1; contagem2 < dia; contagem2 +=1)
             {
 
-                div_mostrarRotina.innerHTML += `Dia ${contagem2 + 1} - Comer, dormir etc<br>`
+                div_mostrarRotina.innerHTML += `Dia ${contagem + contagem2} - Comer, dormir etc<br>`
 
             }
 

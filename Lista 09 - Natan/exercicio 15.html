@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 15</title>
+    <h1>Elefantes incomodam</h1>
+</head>
+<body>
+    
+    Insira a quantidade de elefantes:
+    <input type="number" id="input_elefantes" placeholder="1, 2, 3, 4...">
+    <br>
+    <button onclick="contarElefante()">Atazanar a médium</button>
+    <br>
+    <br>
+    <div id="div_mostrarElefantes"></div>
+
+</body>
+</html>
+
+<script>
+
+    function contarElefante()
+    {
+
+        const elefantes = Number(input_elefantes.value)
+        
+        for(let contagem = 2; contagem <= elefantes; contagem +=1)
+        {
+
+        div_mostrarElefantes.innerHTML += 
+        `1 elefante incomoda muita gente!<br>
+        ${contagem} elefantes, `
+
+            for(let contagem2 = 1; contagem2 <= contagem; contagem2 +=1)
+            {
+
+                div_mostrarElefantes.innerHTML += `incomodam, `
+
+            }
+        
+        div_mostrarElefantes.innerHTML +=`muito mais!<br><br>`
+
+        }
+
+    }
+
+</script>

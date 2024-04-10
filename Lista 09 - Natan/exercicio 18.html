@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 18</title>
+    <h1>Contador de latinhas</h1>
+</head>
+<body>
+    
+    Quantas latinhas de Coca-Cola você ja bebeu na sua vida?
+    <br>
+    <input id="input_latinhas">
+    <br>
+    <br>
+    <button onclick="contarLatinhas()">Ver a quantidade</button>
+    <br>
+    <br>
+    <div id="div_mostrarLatinhas"></div>
+
+</body>
+</html>
+
+<script>
+
+    function contarLatinhas()
+    {
+
+        const latinhas = Number(input_latinhas.value)
+
+
+        for(let contagem = 1; contagem <= latinhas; contagem +=1)
+        {
+
+            div_mostrarLatinhas.innerHTML += `${contagem} latinhas, `
+
+        }
+        div_mostrarLatinhas.innerHTML+= `<br>`
+        
+    } 
+
+</script>

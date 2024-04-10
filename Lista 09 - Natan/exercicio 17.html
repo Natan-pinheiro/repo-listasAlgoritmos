@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 17</title>
+    <h1>Simulador de caronas ACT 2</h1>
+</head>
+<body>
+    
+    Quantas pessoas vão entrar no carro?
+    <br>
+    <input id="input_pessoas" placeholder="1, 2, 3, 4...">
+    <br>
+    Qual é o limite de passageiros do seu veículo?
+    <br>
+    <input type="number" id="input_limitePassageiros" placeholder="1, 2, 3, 4...">
+    <br>
+    <br>
+    <button onclick="simularCarona()">#Partiu Carona</button>
+    <br>
+    <br>
+    <div id="div_mostrarCarona"></div>
+
+</body>
+</html>
+
+<script>
+
+    function simularCarona()
+    {
+
+        const pessoas = Number(input_pessoas.value)
+        const limitePassageiros = Number(input_limitePassageiros.value)
+
+        for(let contagem = 1; contagem <= pessoas; contagem +=1)
+        {
+
+            if(contagem == 1)
+            {
+
+                div_mostrarCarona.innerHTML +=`Entrou o ${contagem}º passageiro (que é o(a) motorista)<br>`
+
+            }
+            else if(contagem <= limitePassageiros)
+            {
+
+                div_mostrarCarona.innerHTML += `Entrou o ${contagem}º passageiro<br>`
+
+            }
+            else
+            {
+
+                div_mostrarCarona.innerHTML += `O ${contagem}º passageiro vai ter que esperar!<br>`
+
+            }
+
+        }
+
+    }
+
+</script>

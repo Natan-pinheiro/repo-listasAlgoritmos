@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 13</title>
+    <h1>Rotina de musculação</h1>
+</head>
+<body>
+    
+    De quantos em quantos dias você faz musculação?
+    <br>
+    <input id="input_dia" placeholder="1, 2, 3, 4...">
+    <br>
+    <br>
+    <button onclick="calcRotina()">Exibir rotina mensal</button>
+    <br>
+    <br>
+    <div id="div_mostrarRotina"></div>
+</body>
+</html>
+
+<script>
+
+    function calcRotina()
+    {
+
+        const dia = Number(input_dia.value)
+        
+
+        for(let contagem = 1; contagem <= 30; contagem += dia + 1)
+        {
+
+            div_mostrarRotina.innerHTML += `Dia ${contagem} - Musculação<br>`
+
+            for(let contagem2 = contagem; contagem2 < dia; contagem2 +=1)
+            {
+
+                div_mostrarRotina.innerHTML += `Dia ${contagem2 + 1} - Comer, dormir etc<br>`
+
+            }
+
+        }
+
+    }
+
+</script>

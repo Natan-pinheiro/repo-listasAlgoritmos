@@ -25,8 +25,23 @@
 
     function contarCafe()
     {
-
         
+        const colheresLeite = Number(input_xicaras.value);
+        const colheresCafe = colheresLeite * 2;
+        
+        for(let contagemLeite = 1; contagemLeite <= colheresLeite; contagemLeite +=1)
+        {
+
+            div_mostrarCafe.innerHTML += `${contagemLeite} colheres de leite<br>`
+
+        }
+
+        for(let contagemCafe = 1; contagemCafe <= colheresCafe; contagemCafe += 1)
+        {
+
+            div_mostrarCafe.innerHTML += `${contagemCafe} colheres de café<br>`
+
+        }
 
     }
 

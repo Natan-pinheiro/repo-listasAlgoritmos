@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Exercício 20</title>
+    <h1>Simulador de depósitos</h1>
+</head>
+<body>
+    
+    Insira a quantidade de depósitos:
+    <br>
+    <input id="input_qtdDepositos" placeholder="1, 2, 3, 4...">
+    <br>
+    <br>
+    Insira o valor de cada depósito:
+    <br>
+    <input id="input_valorDepositos" placeholder="1, 2, 3, 4...">
+    <br>
+    <br>
+    <button onclick="simularDepositos()">Acompanhar grana</button>
+    <br>
+    <br>
+    <div id="div_mostrarDepositos"></div>
+
+</body>
+</html>
+
+<script>
+
+    function simularDepositos()
+    {
+
+        const qtdDepositos = Number(input_qtdDepositos.value);
+        const valorDepositos = Number(input_valorDepositos.value);
+        let valorMensal = 0;
+
+        div_mostrarDepositos.innerHTML += `1º Mês: ${valorDepositos.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}<br>`
+        for(let contagem = 2; contagem <= qtdDepositos; contagem += 1)
+        {
+
+            valorMensal = valorDepositos * contagem;
+            div_mostrarDepositos.innerHTML += `${contagem}º Mês: ${(valorDepositos * contagem).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}<br>`;
+
+        }
+
+        div_mostrarDepositos.innerHTML += `Total guardado: ${(valorMensal).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}<br>`;
+
+    }
+
+</script>

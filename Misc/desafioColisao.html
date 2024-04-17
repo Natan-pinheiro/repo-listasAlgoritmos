@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colisão desafio</title>
+
+</head>
+<body>
+
+    Insira as vértices do primeiro retêmgulo:
+    <br>
+    x0:
+    <input type="text" id="input_x0A">
+    <br>
+    y0:
+    <input type="text" id="input_y0A">
+    <br>
+    x1:
+    <input type="text" id="input_x1A">
+    <br>
+    y1:
+    <input type="text" id="input_y1A">
+    <br>
+    <br>
+    Insira as vértices do segundo retêngulo:
+    <br>
+    x0:
+    <input type="text" id="input_x0B">
+    <br>
+    y0:
+    <input type="text" id="input_y0B">
+    <br>
+    x1:
+    <input type="text" id="input_x1B">
+    <br>
+    y1:
+    <input type="text" id="input_y1B">
+    <br>
+    <br>
+    <button onclick="verificarColisao()">Verificar colisão</button>
+    <br>
+    <div id="div_mostrarColisao"></div>
+
+</body>
+</html>
+
+<script>
+
+    function verificarColisao()
+    {
+
+        
+        //Retangulo A
+        let vertice0A = Number(input_x0A.value) + Number(input_y0A.value)
+        let vertice1A = Number(input_x1A.value) + Number(input_y1A.value)
+
+        //Retangulo B
+        let vertice0B = Number(input_x0B.value) + Number(input_y0B.value)
+        let vertice1B = Number(input_x1B.value) + Number(input_y1B.value)
+
+
+        if (vertice0A == vertice0B)
+        {
+
+            div_mostrarColisao.innerHTML = `Há colisão`
+
+        }
+        else if (vertice0A == vertice1B)
+        {
+
+            div_mostrarColisao.innerHTML = `Há colisão`
+
+        }
+        else if (vertice1A == vertice0B)
+        {
+
+            div_mostrarColisao.innerHTML = `Há colisão`
+
+        }
+        else if (vertice1A == vertice1B)
+        {
+
+            div_mostrarColisao.innerHTML = `Há colisão`
+
+        }
+        else if (vertice0A < vertice0B)
+        {
+
+            if (vertice1A > vertice0B)
+            {
+
+                div_mostrarColisao.innerHTML = `Há colisão`
+
+            }
+            else
+            {
+
+                div_mostrarColisao.innerHTML = `Não há colisão`
+
+            }
+
+        }
+        else if (vertice0A < vertice1B)
+        {
+
+            if (vertice1A > vertice1B)
+            {
+
+                div_mostrarColisao.innerHTML = `Há colisão`
+
+            }
+            else
+            {
+
+                div_mostrarColisao.innerHTML = `Não há colisão`
+
+            }
+
+        }
+        else
+        {
+
+            div_mostrarColisao.innerHTML = `Não há colisão`
+
+        }
+
+    }
+
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <h1>Lista de frutas!</h1>
+</head>
+<body>
+    
+    <input id="input_fruta" placeholder="Pesquise por uma fruta..."><br>
+    <button onclick="procurarFruta()">Pesquisar</button>
+    <br>
+    <br>
+    <div id="resultado"></div>
+
+</body>
+</html>
+
+<script>
+
+    const listaFrutas = ["banana", "maça", "uva", "pera", "manga"];
+
+    function procurarFruta()
+    {
+        let frutaPesquisada = input_fruta.value.toLowerCase();
+        let contemFruta = 0;
+
+        for(let contador = 0; contador < listaFrutas.length ; contador++)
+        {
+            if(listaFrutas[contador] == frutaPesquisada)
+            {
+                contemFruta = true; 
+            }
+        }
+
+        if(contemFruta)
+        {
+            resultado.innerHTML = `A fruta ${frutaPesquisada} está na lista`
+        }
+        else
+        {
+            resultado.innerHTML = `A fruta ${frutaPesquisada} não está na lista`
+        }
+    }
+
+</script>

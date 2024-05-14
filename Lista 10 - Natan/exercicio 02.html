@@ -10,8 +10,23 @@
     
     <input id="input_viagem" placeholder="Destino de viagem">
     <br>
-    <br>
     <button onclick="adicionarViagem()">Adicionar</button>
+    <br>
+    <br>
+    <button onclick="mostrarPrimeiraViagem()">Primeira viagem</button>
+    <br>
+    <div id="div_primeiraViagem"></div>
+    <br>
+    <br>
+    <button onclick="mostrarTerceiraViagem()">Terceira viagem</button>
+    <br>
+    <div id="div_terceiraViagem"></div>
+    <br>
+    <br>
+    <button onclick="mostrarUltimaViagem()">Última viagem</button>
+    <br>
+    <div id="div_ultimaViagem"></div>
+
 
 </body>
 </html>
@@ -23,13 +38,21 @@
     function adicionarViagem()
     {
         listaViagens.push(input_viagem.value);
-        alert(listaViagens);
-        alert(listaViagens.length);
     }
 
-    function primeiraViagem()
+    function mostrarPrimeiraViagem()
     {
-        
+        div_primeiraViagem.innerHTML = `${listaViagens[0]}`
+    }
+
+    function mostrarTerceiraViagem()
+    {
+        div_terceiraViagem.innerHTML = `${listaViagens[2]}`
+    }
+
+    function mostrarUltimaViagem()
+    {
+        div_ultimaViagem.innerHTML = `${listaViagens[listaViagens.length - 1]}`
     }
 
 </script>

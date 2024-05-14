@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Escolha a sua tabuada desejada:
+    <select  id="select_tabuada">
+    <option value="Vazio"></option>
+    <option value="2">Tabuada do 2</option>
+    <option value="3">Tabuada do 3</option>
+    <option value="4">Tabuada do 4</option>
+    <option value="5">Tabuada do 5</option>
+    <option value="6">Tabuada do 6</option>
+    <option value="7">Tabuada do 7</option>
+    <option value="8">Tabuada do 8</option>
+    <option value="9">Tabuada do 9</option>
+</select>
+<br>
+Informe até que número você quer:<br>
+<input type="Number"  id="input_final" placeholder="1...2...3...."><br>
+<button onclick="calctabuada()">Ver tabuada</button>
+
+<div id="mostrarTabuada"></div>
+</body>
+</html>
+
+<script>
+    function calctabuada(){
+        const tabuada = Number(select_tabuada.value)
+        const final = Number(input_final.value)
+
+        for( contagem =1; contagem <= final; contagem +=1){
+            if( contagem % 2 == 0){
+                mostrarTabuada.innerHTML += `<span style="color: blue">${tabuada} x ${contagem} = ${tabuada * contagem}</span><br>`
+            }
+            else{
+                mostrarTabuada.innerHTML += `<span style="color: red">${tabuada} x ${contagem} = ${tabuada * contagem}</span><br>`
+            }
+        }
+    }
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe quantas voltas o carro vai dar:
+    <input type="number" id="input_voltaCarro"><br>
+    <button onclick="corrida()">Iniciar corrida</button>
+    <div id="resultado011"></div>
+</body>
+</html>
+
+<script>
+    function corrida(){
+        const voltas = Number(input_voltaCarro.value)
+
+        for(let contagem =1; contagem <= voltas; contagem += 1){
+            resultado011.innerHTML += `Carro dando a ${contagem}° volta <br>`
+
+        resultado011.innerHMTL += `Corrida finalizada`
+
+        }
+
+    }
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe quantos dias você vai para academia:<br>
+    <input type="number" id="input_quantosDias"><br>
+    <button onclick="rotinaMensal()">Exibir rotina mensal</button>
+
+    <div id="mostrarRotina"></div>
+</body>
+</html>
+
+<script>
+    function rotinaMensal(){
+        const tempo = Number(input_quantosDias.value)
+
+        for( let dia = 0; dia <= 29; dia +=1){
+            if(dia % tempo == 0 ){
+                mostrarRotina.innerHTML += ` dia ${dia + 1},Musculação <br>`
+            }
+            else{
+                mostrarRotina.innerHTML += ` dia ${dia + 1},Comer e dormir <br>`
+            }
+        }
+    }
+</script>

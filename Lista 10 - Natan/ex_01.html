@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Pesquise por uma fruta:
+    <input id="input_fruta"><br>
+    <button onclick="pesquisarFruta()">
+        Pesquisar
+    </button>
+    <button onclick="pesquisarQtdFruta()">
+        Ver quantidade desta fruta na lista
+    </button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+
+    let listaFrutas = [
+        "abacaxi", 
+        "maçã", 
+        "banana", 
+        "uva", 
+        "maçã",
+        "pera",
+        "maçã"
+    ]; // length = 7
+
+    function pesquisarQtdFruta() {
+        const frutaPesquisada = input_fruta.value;
+
+        let quantidadeFrutaNaLista = 0;
+        for (
+            let posicao = 0;
+            posicao < listaFrutas.length;
+            posicao += 1
+        ) {
+            const fruta = listaFrutas[posicao];
+            if (fruta == frutaPesquisada) {
+                quantidadeFrutaNaLista += 1;
+            }
+        }
+
+        div_resultado.innerHTML = `A fruta ${frutaPesquisada} aparece ${quantidadeFrutaNaLista} vezes !`;
+    }
+
+    function pesquisarFruta() {
+        const frutaPesquisada = input_fruta.value;
+
+        let frutaEstaNaLista = false;
+        for (let posicao = 0; 
+             posicao < listaFrutas.length;
+             posicao += 1) {
+                const fruta = listaFrutas[posicao];
+                if (fruta == frutaPesquisada) {
+                    frutaEstaNaLista = true;
+                }
+        }
+
+        if (frutaEstaNaLista) {
+            div_resultado.innerHTML = `A fruta ${frutaPesquisada} existe na lista.`
+        } else {
+            div_resultado.innerHTML = `A fruta ${frutaPesquisada} não existe na lista.`
+        }
+    }
+</script>

@@ -42,17 +42,39 @@
 
     function mostrarPrimeiraViagem()
     {
-        div_primeiraViagem.innerHTML = `${listaViagens[0]}`
+        if (listaViagens.length == 0)
+        {
+            div_primeiraViagem.innerHTML = "Você ainda não fez a primeira viagem!";
+        }
+        else
+        {
+            div_primeiraViagem.innerHTML = `A primeira viagem foi para: ${listaViagens[0]}`;
+        }
     }
 
     function mostrarTerceiraViagem()
     {
-        div_terceiraViagem.innerHTML = `${listaViagens[2]}`
+        if(listaViagens.length < 3)
+        {
+            div_terceiraViagem.innerHTML = "Você ainda não fez a terceira viagem!"
+        }
+        else
+        {
+            div_terceiraViagem.innerHTML = `A terceira viagem foi para: ${listaViagens[2]}`
+        }
     }
 
     function mostrarUltimaViagem()
     {
-        div_ultimaViagem.innerHTML = `${listaViagens[listaViagens.length - 1]}`
+        if(listaViagens.length == 0)
+        {
+            div_ultimaViagem.innerHTML = "Você ainda não fez nenhuma viagems!"
+        }
+        else
+        {
+            div_ultimaViagem.innerHTML = `Sua última viagem foi para: ${listaViagens[listaViagens.length - 1]}`
+        }
     }
+
 
 </script>

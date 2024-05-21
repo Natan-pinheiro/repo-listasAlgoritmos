@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 14</title>
+    <h1>Compre na Natan Games!</h1>
+</head>
+<body>
+    Insira o nome do produto:
+    <br>
+    <input type="text" id="input_nome" placeholder="Nome do produto">
+    <br>
+    <br>
+    Insira o preço do produto:
+    <input type="number" id="input_preco" placeholder="Preço do produto">
+    <br>
+    <br>
+    <button onclick="cadastrarProduto()">Cadastrar</button>
+    <br>
+    <br>
+    <button onclick="mostrarRelatorio()">Relatório de estoque</button>
+    <br>
+    <div id="div_mostrarRelatorio"></div>
+</body>
+</html>
+
+<script>
+    const listaNomeProdutos = []
+    const listaPrecoProdutos = []
+
+    function cadastrarProduto()
+    {
+        if(input_nome.value == "" || input_preco == "" || isNaN(input_preco.value))
+        {
+            alert("Insira o nome e o preço do produto")
+        }
+        else
+        {
+            nomeProduto = input_nome.value;
+            precoProduto = Number(input_preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}));
+    
+            listaNomeProdutos.push(nomeProduto);
+            listaPrecoProdutos.push(precoProduto);
+        }
+    }
+
+    function mostrarRelatorio()
+    {
+        let qtdProdutos = 0
+        for(let contProdutos = 0; contProdutos < listaNomeProdutos.length; contProdutos++)
+        {
+            qtdProdutos += 1
+
+            const produtoNome = listaNomeProdutos[contProdutos];
+            const produtoPreco = listaPrecoProdutos[contProdutos];
+            const precoVenda = produtoPreco + (produtoPreco * 0.25);
+            
+            div_mostrarRelatorio.innerHTML += `
+                Produto ${contProdutos}: ${produtoNome}<br>
+                Preço de compra: ${produtoPreco}. Vender por ${precoVenda}
+            `
+        }
+
+
+    }
+</script>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Surpresa</title>
+    <h1>Lista de jogos</h1>
+</head>
+<body>
+    Insira um jogo: <br>
+    <input type="text" id="input_jogo">
+    <br>
+    <br>
+    <button onclick="cadastrarJogo()">Adicionar na lista</button>
+    <br>
+    <br>
+    <button onclick="mostrarLista()">Ver itens na tela</button>
+    <br>
+    <div id="div_listaJogos"></div>
+
+</body>
+</html>
+
+<script>
+    const listaJogos = [];
+
+    function cadastrarJogo()
+    {
+        const novoJogo = input_jogo.value;
+
+        listaJogos.push(novoJogo);
+    }
+
+    function mostrarLista()
+    {
+        limparTela()
+
+        let cor = "";
+        if(listaJogos.length < 10)
+        {
+            for(let posicao = 0; posicao < listaJogos.length; posicao++)
+            {
+                cor = "purple";
+                if(posicao % 2 == 0)
+                {
+                    cor = "yellow"
+                }
+                let jogo = listaJogos[posicao];
+                div_listaJogos.innerHTML += `<span style="color: ${cor}">${jogo}</span> <br>`
+            }
+        }
+        else
+        {
+            for(let posicao = 0; posicao < listaJogos.length; posicao++)
+            {
+                cor = "green";
+                if(posicao % 2 == 0)
+                {
+                    cor = "red"
+                }
+                let jogo = listaJogos[posicao];
+                div_listaJogos.innerHTML += `<span style="color: ${cor}">${jogo}</span> <br>`
+            }
+        }
+    }
+
+    function limparTela()
+    {
+        div_listaJogos.innerHTML = "";
+    }
+</script>

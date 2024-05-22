@@ -48,28 +48,26 @@
 
     function mostrarRelatorio()
     {
+        let produtoMaisCaro = listaPrecoProdutos[0];
+        let produtoMaisBarato = listaPrecoProdutos[0];
 
-        limparTela()
-
-        let qtdProdutos = 0
         for(let contProdutos = 0; contProdutos < listaNomeProdutos.length; contProdutos++)
         {
-            qtdProdutos += 1
+             if(produtoMaisCaro < listaPrecoProdutos[contProdutos])
+             {
+                produtoMaisCaro = precoProduto[contProdutos];
+             }
 
-            const produtoNome = listaNomeProdutos[contProdutos];
-            const produtoPreco = listaPrecoProdutos[contProdutos];
-            const precoVenda = produtoPreco + (produtoPreco * 0.25);
-            
-            div_mostrarRelatorio.innerHTML += `
-                Produto ${contProdutos + 1}: ${produtoNome}<br>
-                Preço de compra: ${produtoPreco}. Vender por ${precoVenda}<br>
-            `
+             if(produtoMaisBarato > listaPrecoProdutos[contProdutos])
+             {
+                produtoMaisBarato = precoProduto[contProdutos];
+             }
         }
 
-        function limparTela()
-        {
-            div_mostrarRelatorio.innerHTML = ""
-        }
+        div_mostrarRelatorio.innerHTML += `
+        Produto mais caro: ${produtoMaisCaro}<br>
+        Produto mais barato: ${produtoMaisBarato}
+        `
 
     }
 </script>

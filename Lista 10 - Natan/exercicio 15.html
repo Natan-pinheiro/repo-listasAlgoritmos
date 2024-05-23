@@ -53,6 +53,8 @@
 
         let produtoMaisCaro = 0;
         let produtoMaisBarato = 0;
+        let somaPrecos = 0;
+        let mediaPrecos = 0;
 
         for(let contProdutos = 0; contProdutos < listaNomeProdutos.length; contProdutos++)
         {
@@ -69,11 +71,17 @@
 
                 produtoMaisBarato = contProdutos;
              }
+             somaPrecos += listaPrecoProdutos[contProdutos]
+
+
         }
+        mediaPrecos = somaPrecos / listaPrecoProdutos.length
 
         div_mostrarRelatorio.innerHTML += `
         Produto mais caro: ${listaNomeProdutos[produtoMaisCaro]}<br>
-        Produto mais barato: ${listaNomeProdutos[produtoMaisBarato]}
+        Produto mais barato: ${listaNomeProdutos[produtoMaisBarato]}<br>
+        Soma dos preços: ${somaPrecos}<br>
+        Média dos preços: ${mediaPrecos}
         `
 
     }

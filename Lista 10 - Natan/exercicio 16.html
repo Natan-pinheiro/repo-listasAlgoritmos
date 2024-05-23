@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 16</title>
+    <h1>Cadastre seus números!</h1>
+</head>
+<body>
+    Digite um número qualquer:
+    <br>
+    <input type="number" id="input_numero">
+    <br>
+    <br>
+    <button onclick="analisarHistorico()">Analisar histórico</button>
+    <br>
+    <br>
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+
+    const listaNumeros = [];
+
+    function analisarHistorico()
+    {
+        let numero = input_numero.value;
+        listaNumeros.push(numero);
+
+        limparTela()
+
+        let maiorNumero = listaNumeros[0]
+        let menorNumero = listaNumeros[0]
+
+        for(let contNumeros = 0; contNumeros < listaNumeros.length; contNumeros++)
+        {
+            if(maiorNumero < listaNumeros[contNumeros])
+            {
+                maiorNumero = listaNumeros[contNumeros]
+            }
+
+            if(menorNumero > listaNumeros[contNumeros])
+            {
+                menorNumero = listaNumeros[contNumeros]
+            }
+            div_resultado.innerHTML += `${contNumeros + 1}º Número: ${listaNumeros[contNumeros]}<br>`
+        }
+
+        div_resultado.innerHTML += `
+        <br><br>Maior número: ${maiorNumero}<br>
+        Menor número: ${menorNumero}
+        `
+    }
+
+    function limparTela()
+    {
+        div_resultado.innerHTML = ""
+    }
+</script>

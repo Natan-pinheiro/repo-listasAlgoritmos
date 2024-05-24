@@ -4,57 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercício 16</title>
-    <h1>Cadastre seus números!</h1>
 </head>
 <body>
-    Digite um número qualquer:
-    <br>
-    <input type="number" id="input_numero">
-    <br>
-    <br>
-    <button onclick="analisarHistorico()">Analisar histórico</button>
-    <br>
-    <br>
+    Digite um número qualquer: 
+    <input id="input_numero">
+
+    <button onclick="analisar()">Analisar histórico</button>
+    <br><br>
+
     <div id="div_resultado"></div>
 </body>
 </html>
 
 <script>
-
     const listaNumeros = [];
 
-    function analisarHistorico()
-    {
-        let numero = input_numero.value;
-        listaNumeros.push(numero);
+    function analisar() {
+        limparTela();
 
-        limparTela()
+        const novoNumero = Number(input_numero.value);
 
-        let maiorNumero = listaNumeros[0]
-        let menorNumero = listaNumeros[0]
+        listaNumeros.push(novoNumero);
 
-        for(let contNumeros = 0; contNumeros < listaNumeros.length; contNumeros++)
+        let maiorNumero = listaNumeros[0];
+        let menorNumero = listaNumeros[0];
+
+        for(posicao = 0;posicao < listaNumeros.length;posicao ++) 
         {
-            if(maiorNumero < listaNumeros[contNumeros])
+            div_resultado.innerHTML += `${posicao + 1}º Número: ${listaNumeros[posicao]}<br><br>`
+
+            if(maiorNumero < listaNumeros[posicao]) 
             {
-                maiorNumero = listaNumeros[contNumeros]
+                maiorNumero = listaNumeros[posicao]
             }
 
-            if(menorNumero > listaNumeros[contNumeros])
+            if(menorNumero > listaNumeros[posicao]) 
             {
-                menorNumero = listaNumeros[contNumeros]
+                menorNumero = listaNumeros[posicao]
             }
-            div_resultado.innerHTML += `${contNumeros + 1}º Número: ${listaNumeros[contNumeros]}<br>`
         }
 
-        div_resultado.innerHTML += `
-        <br><br>Maior número: ${maiorNumero}<br>
-        Menor número: ${menorNumero}
-        `
+        div_resultado.innerHTML += 
+        `<br>
+        Maior: ${maiorNumero}<br>
+        Menor: ${menorNumero}<br>`
     }
 
-    function limparTela()
-    {
-        div_resultado.innerHTML = ""
+    function limparTela() {
+        div_resultado.innerHTML = "";
     }
 </script>

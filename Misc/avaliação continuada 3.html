@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tênis Clube SPTECH</title>
+  <style>
+    body {
+      display: flex;
+      align-items: stretch;
+    }
+
+    body div:first-child,
+    body div:nth-of-type(2) {
+      padding: 8px;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+    }
+
+    body div:nth-of-type(2) {
+      flex-grow: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <label for="input_qtd_rodadas">
+      Rodadas máximas:
+      <input id="input_qtd_rodadas" /><br />
+    </label>
+
+    <button onclick="realizarRodada()">Realizar rodada</button>
+
+    <h3>Informe as rodadas que deseja relembrar</h3>
+
+    <label for="input_inicio_intervalo">Início:</label>
+    <input id="input_inicio_intervalo" />
+    <label for="input_fim_intervalo">Fim:</label>
+    <input id="input_fim_intervalo" />
+
+    <button onclick="relembrarRodadas()">Relembrar</button>
+  </div>
+  <div>
+    <h3>Painel</h3>
+    <div id="div_painel"></div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  const rodadasJogador1 = []
+  const rodadasJogador2 = []
+
+
+  let numeroRodada = 1
+
+  function realizarRodada()
+  {
+    const rodadasMaximas = Number(input_qtd_rodadas.value)
+
+    let totalJogador1 = 0
+    let totalJogador2 = 0
+    
+    limparTela();
+
+    if(rodadasMaximas <= 0)
+    {
+      div_painel.innerHTML = "Número de rodadas inválido"
+    }
+    else
+    {
+       if(numeroRodada > rodadasMaximas)
+       {
+          div_painel.innerHTML = "Partida finalizada"
+       }
+       else
+       {
+        rodadasJogador1.push(numeroRodada + 4);
+        rodadasJogador2.push(numeroRodada + 1);
+
+        for(let contRodadas = 0; contRodadas < rodadasJogador1.length; contRodadas++)
+        {
+          div_painel.innerHTML += 
+          `
+            Rodada ${contRodadas + 1}:<br>
+            Jogador 1: ${rodadasJogador1[contRodadas]}<br>
+            Jogador 2: ${rodadasJogador2[contRodadas]}<br><br>
+          `
+
+          totalJogador1 += rodadasJogador1[contRodadas];
+          totalJogador2 += rodadasJogador2[contRodadas];
+        }
+
+        div_painel.innerHTML +=
+        `
+          Total jogador 1: ${totalJogador1}<br>
+          Total jogador 2: ${totalJogador2}
+        `
+        numeroRodada++;
+
+       }
+    }
+  }
+
+  function relembrarRodadas()
+  {
+    limparTela();
+
+    const inicioIntervalo = Number(input_inicio_intervalo.value)
+    const fimIntervalo = Number(input_fim_intervalo.value)
+    const rodadasMaximas = Number(input_qtd_rodadas.value)
+
+    let totalJogador1 = 0
+    let totalJogador2 = 0
+
+    if(inicioIntervalo <= 0 || inicioIntervalo > fimIntervalo || fimIntervalo > rodadasMaximas)
+    {
+      div_painel.innerHTML = "Insira um intervalo válido!"
+    }
+    else
+    {
+        for(let contRelembrar = inicioIntervalo - 1; contRelembrar < fimIntervalo; contRelembrar++)
+        {
+          div_painel.innerHTML +=
+          `
+            Rodada ${contRelembrar + 1}:<br>
+            Jogador 1: ${rodadasJogador1[contRelembrar]}<br>
+            Jogador 2: ${rodadasJogador2[contRelembrar]}<br><br>
+          `
+          totalJogador1 += rodadasJogador1[contRelembrar];
+          totalJogador2 += rodadasJogador2[contRelembrar];
+        }
+    
+        div_painel.innerHTML +=
+            `
+              Total jogador 1: ${totalJogador1}<br>
+              Total jogador 2: ${totalJogador2}<br><br>
+            `
+    }
+
+  }
+
+function limparTela()
+{
+  div_painel.innerHTML = ""
+}
+</script>

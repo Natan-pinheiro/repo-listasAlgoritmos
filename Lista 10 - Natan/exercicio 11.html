@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+
+<body>
+    Preço do produto:
+    <input type="number" id="input_preco">
+    <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizar()">Atualizar Estoque</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    const listaPrecos = [];
+
+    function cadastrar() {
+        const precoNovo = Number(input_preco.value);
+
+        listaPrecos.push(precoNovo);
+    }
+
+    function atualizar() {
+        let somaProdutos = 0
+
+        for (let posicao = 0;
+            posicao < listaPrecos.length;
+            posicao++) {
+            somaProdutos += listaPrecos[posicao]
+        }
+        div_resultado.innerHTML = `
+    Você tem ${listaPrecos.length} produtos cadastrados em estoque <br>
+    Seu estoque vale R$${somaProdutos}`
+    }
+</script>

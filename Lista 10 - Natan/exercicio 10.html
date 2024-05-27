@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busão</title>
+</head>
+
+<body>
+    <h1>Lista de Busões</h1>
+    <input type="text" id="input_busao">
+    <button onclick="cadastrar()">Gravar Busão</button>
+    <br>
+    Já pegou esse linha?
+    <input type="text" id="input_pesquisa">
+    <button onclick="pesquisar()">Pesquisar</button>
+
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+
+    const listaBusoes = [];
+
+    function cadastrar() {
+        const busaoNovo = input_busao.value;
+        listaBusoes.push(busaoNovo);
+        div_resultado.innerHTML = " "
+
+        // for(let posicao = 0;
+        //     posicao < listaBusoes.length;
+        //     posicao++
+        // ) {
+        //     div_resultado.innerHTML += `${listaBusoes[posicao]} <br>`
+        // }
+
+        for (let posicao = listaBusoes.length - 1;
+            posicao >= 0;
+            posicao--
+        ) { div_resultado.innerHTML += `${listaBusoes[posicao]} <br>` }
+    }
+
+    function pesquisar() {
+        const linhaRepetida = input_pesquisa.value;
+        const qtdRepetida = [];
+
+        for (let posicao = 0;
+            posicao < listaBusoes.length;
+            posicao++
+        ) {
+            if (listaBusoes[posicao] == linhaRepetida) {
+                qtdRepetida.push(posicao)
+            }
+         if (!qtdRepetida.length) {
+            div_resultado.innerHTML = `Você nunca pegou essa linha`
+        } else {
+            for(let posicao = 0;
+                posicao < listaBusoes.length;
+                posicao++)
+            div_resultado.innerHTML +=
+                `Você já pegou essa linha ${qtdRepetida} vezes, nessa ordem: ${listaBusoes}`
+        }
+        
+    }
+    }
+</script>

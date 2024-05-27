@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13</title>
+</head>
+<body>
+    Insira uma campanha de um time:
+    <br>
+    Vitória:
+    <input type="number" id="input_vitoria">
+    <br>
+    Empate:
+    <input type="number" id="input_empate">
+    <br>
+    Derrota:
+    <input type="number" id="input_derrota">
+    <br>
+    <button onclick="registrar()">Registrar Jogo</button>
+</body>
+</html>
+
+<script>
+    const listaResultados = [];
+
+    function registrar(){
+        const novaVitoria = Number(input_vitoria.value);
+        const novoEmpate = Number(input_empate.value);
+        const novaDerrota = Number(input_derrota.value);
+
+        listaResultados.push(novaVitoria, novoEmpate, novaDerrota)
+    }
+</script>

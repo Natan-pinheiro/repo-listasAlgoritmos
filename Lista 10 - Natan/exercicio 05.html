@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+
+<body>
+    Insira o nome do filme
+    <input type="text" id="input_filme">
+    <br>
+    <button onclick="cadastrarFilme()">Cadastrar Filme</button>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    const listaFilmes = [];
+
+    function cadastrarFilme() {
+
+        div_resultado.innerHTML = "";
+        let novoFilme = input_filme.value;
+        let novoFilmeSintetizado = novoFilme.trim();
+
+        if(novoFilmeSintetizado == " ") {
+            alert('Nome do filme inválido')
+        } else {
+            listaFilmes.push(novoFilmeSintetizado)
+            novoFilme = " "
+            atualizarSaida()
+        }
+        
+        function atualizarSaida() {
+            let filmeFavorito = listaFilmes.length[0];
+            let terceiroFilmeFavorito = listaFilmes.length[4]
+            let totalFilmes = listaFilmes.length
+
+            if(!terceiroFilmeFavorito) {
+                terceiroFilmeFavorito = "Ainda não existe"
+            }
+
+        }
+      
+        div_resultado.innerHTML += `  
+        Seu filme favorito: ${filmeFavorito}<br>
+        Seu 3º filme favorito: ${terceiroFilmeFavorito}<br> 
+        Total de filmes cadastrados: ${totalFilmes} `
+    }
+</script>
